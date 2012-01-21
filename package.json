@@ -1,0 +1,20 @@
+{
+  "author": "Conner Petzold <cpetzold@gmail.com> (http://the0th.com)",
+  "name": "blog",
+  "description": "markdown blogging system built on mongoose",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.4.12"
+  },
+  "dependencies": {
+    "mongoose": "2.4.x",
+    "watch-tree": "0.1.x",
+    "marked": "0.1.x",
+    "highlight": "0.2.x",
+    "MD5": "0.0.x"
+  },
+  "devDependencies": {}
+}
