@@ -9,6 +9,7 @@
   "dependencies": {
     "mongoose": "2.4.x",
     "watch-tree": "0.1.x",
+    "async": "0.1.x",
     "marked": "0.1.x",
     "highlight": "0.2.x",
     "gravatar": "1.0.x",
