@@ -1,1 +1,1 @@
-**O**utput **W**ords & **L**etters
+![OWL](https://raw.github.com/cpetzold/owl/master/etc/logo.gif)
