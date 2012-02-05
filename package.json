@@ -14,5 +14,8 @@
     "highlight": "0.2.x",
     "gravatar": "1.0.x",
     "MD5": "0.0.x"
+  },
+  "devDependencies": {
+    "should": "0.5.x"
   }
 }

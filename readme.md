@@ -84,6 +84,14 @@ blog.init(function(e) {
   * API is both callback and event driven.
   
   * All markdown is [github flavored](http://github.github.com/github-flavored-markdown/)
+  
+## Test
+
+In the root:
+
+    npm install -g mocha
+    mocha
+
 
 ## License
 
