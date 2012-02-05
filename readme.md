@@ -5,7 +5,7 @@
 
 ## Example
 
-The following is the inlined contents of `/example/simple`
+The following is the inlined contents of `examples/simple`
 
 ### blog.js
 
