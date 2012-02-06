@@ -2,7 +2,7 @@
   "author": "Conner Petzold <cpetzold@gmail.com> (http://the0th.com)",
   "name": "owl",
   "description": "markdown blogging system built on mongoose",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "url": "https://github.com/cpetzold/owl"
   },
@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "should": "0.5.x"
+  },
+  "engines": {
+    "node": "*"
   }
 }
