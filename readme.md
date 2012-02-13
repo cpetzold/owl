@@ -1,7 +1,70 @@
 ![OWL](https://raw.github.com/cpetzold/owl/master/etc/logo.gif)
 
-**OWL** (**O**utput **W**ords & **L**etters) is a simple node.js blogging engine backed by MongoDB and the file system.  It was heavily influenced by [reed](https://github.com/ProjectMoon/reed).
+**OWL** (**O**WL **W**atches & **L**etters) is a simple node.js blogging engine backed by MongoDB and the file system. It was heavily influenced by [reed](https://github.com/ProjectMoon/reed).
 
+## Summary
+
+With owl, writing a blog post or static page means creating a new markdown file in either the posts or pages directory. If owl is running when the new file is saved, it will read the file, parse the markdown, apply the meta data set in the file, and save the post/page to mongo. Any modifications to this file will trigger the same cycle, ultimately updating the post on the database.  If owl isn't running, it will pick up the changes later on initialization.
+
+In order to define a title, tags, or other metadata associated with a post or page, key/value definitions at the top of the file are required.  Look at the examples or read further to see the format.
+
+If a file is removed, the corresponding database entry will also be removed.  This, along with most other aspects of owl, is configurable.  Look at the documentation on *createBlog* for all possible options.
+
+## Documentation
+
+### owl.createBlog([ options ])
+
+Returns a Blog instance, defaulting to the following options.
+
+```javascript
+var owl = require('owl');
+
+var blog = owl.createBlog({
+    posts: './posts' // Post directory
+  , pages: './pages' // Page directory
+  , mongo: 'mongodb://localhost/blog' // MongoDB URI
+  , debug: false
+});
+```
+
+### blog.set(key[, value ])
+
+Sets (if passed a value) or gets an internal or arbitrary setting.
+
+```javascript
+blog.set('posts'); // => './posts'
+blog.set('posts', __dirname + '/content');
+```
+
+### blog.init([ callback ])
+
+Initializes the post/page directory watchers and performs an update on both.  On completion, the optional `callback` is called and the `init` event fired.
+
+```javascript
+blog.init(function(e) {
+  ...
+});
+
+blog.on('init', function(e) {
+  ...
+});
+```
+
+### blog.update(directory[, callback ])
+
+Looks through all files in the type of content specified (`posts` or `pages`), upserting the content corresponding to the file.
+
+Emits either a `posts.updated` or `pages.updated` event.
+
+```javascript
+blog.update('posts', function(e) {
+  ...
+});
+
+blog.on('posts.updated', function() {
+  ...
+});
+```
 
 ## Example
 
