@@ -1,6 +1,6 @@
 ![OWL](https://raw.github.com/cpetzold/owl/master/etc/logo.gif)
 
-**OWL** (**O**WL **W**atches & **L**etters) is a simple node.js blogging engine backed by MongoDB and the file system. It was heavily influenced by [reed](https://github.com/ProjectMoon/reed).
+**OWL** (**O**WL **W**atches **L**etters) is a simple node.js blogging engine backed by MongoDB and the file system. It was heavily influenced by [reed](https://github.com/ProjectMoon/reed).
 
 ## Summary
 
@@ -62,6 +62,41 @@ blog.update('posts', function(e) {
 });
 
 blog.on('posts.updated', function() {
+  ...
+});
+```
+
+### blog.posts(options|callback[, callback ])
+
+Retrieves an array of posts, defaulting to the following options.
+
+```javascript
+blog.posts({
+    page: 1
+  , per_page: 10 // Set to 0 for no pagination
+  , sort_path: 'date' // Path on which to sort, can be nested (ex: 'meta.title')
+  , sort_dir: 'desc' // Sort direction ('desc' or 'asc')
+}, function(e, posts) {
+  ...
+});
+```
+
+### blog.post(slug, callback)
+
+Retrieves a post. The `slug` is, by default, the filename excluding '.md'
+
+```javascript
+blog.post('hello-world', function(e, post) {
+  ...
+});
+```
+
+### blog.page(slug, callback)
+
+Retrieves a page. The `slug` is, by default, the filename excluding '.md'
+
+```javascript
+blog.page('about', function(e, page) {
   ...
 });
 ```
