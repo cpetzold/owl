@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "mongoose": "2.4.x",
-    "watch-tree": "0.1.x",
+    "watch": "0.5.x",
     "async": "0.1.x",
     "marked": "0.1.x",
     "highlight": "0.2.x",
@@ -19,6 +19,6 @@
     "should": "0.5.x"
   },
   "engines": {
-    "node": "*"
+    "node": ">=0.6.0"
   }
 }
